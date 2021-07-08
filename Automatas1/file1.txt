@@ -1,0 +1,7 @@
+hola()
+begin
+string a = 12 +  1 ;
+
+boolean c;
+a = a * a + 12;
+end
