@@ -1,0 +1,7 @@
+hola()
+begin
+int a = 1 ;
+a = a + 5;
+boolean x;
+a = a + x;
+end
