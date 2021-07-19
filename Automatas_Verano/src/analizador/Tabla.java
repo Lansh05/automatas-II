@@ -1,4 +1,4 @@
-package analizador_lex_sin_entrega_1;
+package analizador;
 
 import java.util.ArrayList;
 
@@ -16,6 +16,9 @@ public class Tabla
 
 	public Tabla(ArrayList<Token> tokenrc) 
 	{
+
+//		public String rango, tipo, nombre, valor, renglon, columna;
+		
 		tokenRC = tokenrc;
 		String nombre[] = new String[tokenRC.size()];
 		int tipo[] = new int[tokenRC.size()];
@@ -49,7 +52,9 @@ public class Tabla
 					ValoresHaciaTabla(nombreTipo, nombre[i+1],     "0", renglon[i+1], columna[i+1]);
 				else
 					ValoresHaciaTabla(nombreTipo, nombre[i+1], "false", renglon[i+1], columna[i+1]);
-			}	
+				
+			}
+				
 		}
 		//Aquí a las variables declaradas se les asignan lo valores correspondientes al código en el .txt
 		for (int i = 0; i < tokenRC.size(); i++){
@@ -145,6 +150,7 @@ public class Tabla
 					}
 				}
 				
+				
 				if((tokenRC.get(i-1).getTipo() == booleano || tokenRC.get(i-1).getTipo() == booleano)  && tokenRC.get(i).getTipo() == id)
 				{
 					tokenActual = tokenRC.get(i).getToken();
@@ -227,10 +233,10 @@ public class Tabla
 			for (int i = 0; i < valoresTab.size(); i++)
 			{
 			
-				if(valoresTab.get(i).nombre.length() > mayorN)
-					mayorN = valoresTab.get(i).nombre.length() + 7;
-				if(valoresTab.get(i).valor.length() > mayorV)
-					mayorV= valoresTab.get(i).valor.length() + 7;
+					if(valoresTab.get(i).nombre.length() > mayorN)
+						mayorN = valoresTab.get(i).nombre.length() + 7;
+					if(valoresTab.get(i).valor.length() > mayorV)
+						mayorV= valoresTab.get(i).valor.length() + 7;
 						
 			}
 			System.out.println("\n"+

@@ -1,4 +1,4 @@
-package analizador_lex_sin_entrega_1;
+package analizador;
 
 public class Token {
 	

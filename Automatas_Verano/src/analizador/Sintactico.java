@@ -1,4 +1,4 @@
-package analizador_lex_sin_entrega_1;
+package analizador;
 
 import java.util.ArrayList;
 
@@ -11,19 +11,33 @@ public class Sintactico {
 	
 	String tokenRealString;
 	int tokenReal = -1, indice = 0, renglon = 0, columna = 0;
+//	public ArrayList<Integer> tipos, renglones, columnas;
+//	public ArrayList<String> tokens;
 	public ArrayList<Token> tokenRC;
 	 
 	
 	public Sintactico(ArrayList<Token> tokenRC) 
 	{
 		this.tokenRC = tokenRC;
+//		this.tipos = tipos;
+//		this.renglones = renglones;
+//		this.columnas = columnas;
+//		this.tokens = tokens;
 		
 		tokenReal = tokenRC.get(indice).getTipo();			// Número
 		tokenRealString = tokenRC.get(indice).getToken();	//Palabra
 		renglon = tokenRC.get(indice).getRenglon();
 		columna = tokenRC.get(indice).getColumna();
+//		
+//		tipos.get(indice); 
+//		tokenRealString = tokens.get(indice);
+//		renglon = renglones.get(indice);
+//		columna = columnas.get(indice);
 		
 		Programa();
+		
+//		System.out.println("fin del programa, pasó las pruebas!!");
+
 	}
 	
 	public void eat(int t)
@@ -32,6 +46,7 @@ public class Sintactico {
 		if(indice > 0)
 		 tokenAnterior = tokenRC.get(indice-1).getTipo();
 	    int tokenEsperado = t; //ifs = 1
+//	    System.out.println("tipos.size = " + tipos.size() + " //// indice = " + indice);
         if(tokenReal == tokenEsperado) // 2 = 8?
         {
         	if(tokenRC.size()-1 == indice)
@@ -77,7 +92,10 @@ public class Sintactico {
 		eat(parizq);
 		eat(parder);
 		End();
-		
+	
+//		else error();
+//		System.out.println("tamaño indice = " + indice + ", tamaño lista = " + tokens.size());
+//		eat(end);
 		if(tokenRC.size() > indice)
 		{
 			System.out.println("Error sintáctico, error en los límites del código almenos un token extra \"" + tokenRC.get(indice).getToken() + "\"");
@@ -101,8 +119,8 @@ public class Sintactico {
 		 eat(end);
 	}
 	
-	public void Declaracion () 
-	{
+	public void Declaracion () {
+		String tok;
 		switch (tokenReal) {
 			case entero: 
 				eat(entero);
